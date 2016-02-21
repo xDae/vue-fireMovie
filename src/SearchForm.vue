@@ -6,7 +6,7 @@
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <a v-if="!hasResults" class="dropdown-item" href="#">No Results</a>
-                <a v-else="hasResults" class="dropdown-item" href="#" v-for="film in resultList" @click.prevent="saveMovie(film)">{{film.title}} - {{film.release_date}}</a>
+                <a v-else="hasResults" class="dropdown-item" href="#" v-for="film in resultList | orderBy 'release_date' -1 | limitBy 10" @click.prevent="saveMovie(film)">{{film.title}} - <strong>{{film.release_date}}</strong></a>
             </div>
 
             <select v-model="userLang" class="c-select">
@@ -59,9 +59,6 @@ export default {
             })
             .then(function (response) {
                 // success callback
-
-                console.log(response);
-
                 if (response.data.total_results > 0) {
                     this.$set('hasResults', true);
                     this.$set('resultList', response.data.results);
@@ -71,7 +68,6 @@ export default {
 
             }, function (response) {
                 // error callback
-                // console.warn(response);
                 this.$set('hasResults', false);
             });
         },
