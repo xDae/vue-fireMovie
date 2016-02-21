@@ -11,7 +11,6 @@ new Vue({
   components: { App }
 });
 
-
 const dbRef = new Firebase('https://vue-firemoviex.firebaseIO.com');
 
 export default dbRef;

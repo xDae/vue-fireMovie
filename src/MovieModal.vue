@@ -159,6 +159,7 @@ a:hover {
   overflow: hidden;
   z-index: 1;
   background-size: cover;
+  background-color: grey;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   -webkit-transform: skewY(-2.2deg);

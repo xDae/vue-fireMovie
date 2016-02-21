@@ -1,10 +1,9 @@
 <template>
     <div class="card">
         <div class="front-card">
-            <img class="card-img-top" v-bind:src="moviethumb" alt="Card image cap">
+            <img v-if="moviethumb" class="card-img-top" v-bind:src="moviethumb" alt="Card image cap">
             <div class="card-block">
-                <h4 class="card-title">{{ movie.title }} - {{ year }}</h4>
-                <p class="card-text">{{ lenght }}</p>
+                <h4 class="card-title">{{ movie.title }}</h4>
             </div>
         </div>
     </div>
@@ -37,7 +36,7 @@ export default {
                 this.$set('moviethumb', response.data.moviebanner[0].url)
             }, function (response) {
                 // error callback
-                console.warn(response);
+                // console.warn(response);
             });
 
         }
