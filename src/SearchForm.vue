@@ -2,11 +2,11 @@
 <form class="form-inline">
     <div class="form-group">
         <div class="dropdown">
-            <input id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="text" class="form-control" id="exampleInputEmail2" placeholder="Search" v-model="movieTitle" debounce="500">
+            <input id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="text" class="form-control" placeholder="Search" v-model="movieTitle" @keyup.esc="deleteForm" debounce="500">
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <a v-if="!hasResults" class="dropdown-item" href="#">No Results</a>
-                <a v-else="hasResults" class="dropdown-item" href="#" v-for="film in resultList | orderBy 'release_date' -1 | limitBy 10" @click.prevent="saveMovie(film)">{{film.title}} - <strong>{{film.release_date}}</strong></a>
+                <a v-else="hasResults" class="dropdown-item" href="#" v-for="film in resultList | orderBy 'release_date' -1 | limitBy 10" @click.prevent="saveMovie(film)">{{film.title}} <strong>{{film.release_date | year }}</strong></a>
             </div>
 
             <select v-model="userLang" class="c-select">
