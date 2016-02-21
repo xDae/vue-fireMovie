@@ -83,7 +83,7 @@ export default {
 
             const ref = new Firebase('https://vue-firemoviex.firebaseIO.com/movies');
             ref.orderByChild('dateAdded').on('value', function(snapshot) {
-                console.log(snapshot.val());
+                // console.log(snapshot.val());
 
                 data.$set('movieList', snapshot.val());
             }, function (errorObject) {
