@@ -96,27 +96,7 @@
 				</div> <!-- bottom bar -->
 			</div> <!-- featured -->
 
-			<div class="movie-list">
-				<div class="title-bar">
-					<div class="left">
-						<p class="bold">Popular Trailers</p>
-						<p class="grey">Action / Adventure</p>
-					</div> <!-- left -->
-					<div class="right">
-						<a class="blue" href="#">Rating <i class="fa fa-angle-down"></i></a>
-						<a href="#">Newest</a>
-						<a href="#">Oldest</a>
-					</div> <!-- right -->
-				</div> <!-- title-bar -->
-
-				<ul class="list">
-					<movie-card></movie-card>
-				</ul>
-
-				<a href="#" class="load-more">Show more movies <span class="fa fa-plus"></span></a>
-
-			</div> <!-- movie list -->
-
+      <router-view></router-view>
 
 		</div> <!-- main -->
 
@@ -125,11 +105,11 @@
 </template>
 
 <script>
-import MovieCard from './components/MovieCard';
+// import MovieList from './components/MovieList';
 
 export default {
   components: {
-    MovieCard,
+    // MovieList,
   },
 };
 </script>

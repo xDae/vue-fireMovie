@@ -8,12 +8,23 @@
 
 <script>
 export default {
+  name: 'MovieCard',
+  props: {
+    title: {
+      type: String,
+      required: true,
+      default: '',
+    },
+    genre: {
+      type: Array,
+    },
+    img: {
+      type: String,
+      default: 'https://cms-assets.tutsplus.com/uploads/users/107/posts/22956/final_image/cinema.jpg',
+    },
+  },
   data() {
-    return {
-      title: 'Sin City: A Dame To Kill For',
-      genre: ['Action', 'Crime'],
-      img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/22043/2014-03-08_140412_oavbye_1.png',
-    };
+    return {};
   },
 };
 </script>
