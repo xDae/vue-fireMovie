@@ -1,15 +1,18 @@
 <template>
-  <li>
-    <img :src="img" alt="" class="cover" />
-    <p class="title">{{title}}</p>
-    <p class="genre">{{genre}}</p>
-  </li>
+  <a v-link="{ name: 'movie', params: { id: this.id }}" class="featured-movie">
+    <img class="cover" :src="img" alt="" class="cover" />
+    <p class="corner-title">{{title}}</p>
+  </a> <!-- featured -->
 </template>
 
 <script>
 export default {
   name: 'MovieCard',
   props: {
+    id: {
+      type: Number,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -20,16 +23,21 @@ export default {
     },
     img: {
       type: String,
-      default: 'https://cms-assets.tutsplus.com/uploads/users/107/posts/22956/final_image/cinema.jpg',
+      default: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/22043/backdrop_ggwxvq_1.jpg',
     },
   },
   data() {
-    return {};
+    return {
+
+    };
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
+  .featured-movie {
+    width: 50%;
+    float: left;
+  }
 </style>

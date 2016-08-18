@@ -16,6 +16,12 @@ router.map({
     name: 'Home',
     component: MovieList,
   },
+  '/movie/:id': {
+    name: 'movie',
+    component: {
+      template: '<p>the film ID is {{$route.params.id}}</p>',
+    },
+  },
 });
 
 export default router;

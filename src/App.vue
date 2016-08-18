@@ -71,30 +71,17 @@
 				<p class="fa fa-search"></p>
 			</div>
 
-			<div class="featured-movie">
-				<img class="cover" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/22043/backdrop_ggwxvq_1.jpg" alt="" class="cover" />
-				<p class="corner-title">Staff pick</p>
-
-				<div class="bottom-bar">
-					<div class="title-container">
-						<span class="fa fa-play-circle"></span>
-						<b>Non-stop</b> Trailer #1
-					</div>
-
-					<div class="right">
-						<div class="stars">
-							<span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
-							<span class="fa fa-star-half-o"></span>
-							<span class="fa fa-star-o"></span>
-						</div>
-						<div class="share">
-							<i class="fa fa-share-square"></i> Share
-						</div>
-					</div> <!-- right -->
-				</div> <!-- bottom bar -->
-			</div> <!-- featured -->
+      <div class="title-bar">
+        <div class="left">
+          <p class="bold">Popular Trailers</p>
+          <p class="grey">Action / Adventure</p>
+        </div> <!-- left -->
+        <div class="right">
+          <a class="blue" href="#">Rating <i class="fa fa-angle-down"></i></a>
+          <a href="#">Newest</a>
+          <a href="#">Oldest</a>
+        </div> <!-- right -->
+      </div> <!-- title-bar -->
 
       <router-view></router-view>
 
@@ -416,34 +403,34 @@ a:hover {
 .window .main .featured-movie .bottom-bar .right .share .fa {
   margin-right: 5px;
 }
-.window .main .movie-list .title-bar {
+.window .main .title-bar {
   padding: 20px;
   border-bottom: 1px solid #DDD;
   overflow: hidden;
 }
-.window .main .movie-list .title-bar .left {
+.window .main .title-bar .left {
   float: left;
   font-size: 15px;
   text-transform: uppercase;
 }
-.window .main .movie-list .title-bar .left .grey {
+.window .main .title-bar .left .grey {
   color: #999;
 }
-.window .main .movie-list .title-bar .left .bold {
+.window .main .title-bar .left .bold {
   font-weight: bold;
 }
-.window .main .movie-list .title-bar .left p {
+.window .main .title-bar .left p {
   display: inline-block;
   margin-right: 10px;
 }
-.window .main .movie-list .title-bar .right {
+.window .main .title-bar .right {
   float: right;
 }
-.window .main .movie-list .title-bar .right a {
+.window .main .title-bar .right a {
   color: #999;
   margin-left: 10px;
 }
-.window .main .movie-list .title-bar .right a.blue {
+.window .main .title-bar .right a.blue {
   color: #279CEB;
 }
 .window .main .movie-list .list {
