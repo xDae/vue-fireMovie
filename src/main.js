@@ -22,7 +22,7 @@ sync(store, router);
 
 Vue.extend({
   store,
-  components: { App },
+  components: { App }
 });
 
 router.start(App, 'app');

@@ -1,4 +1,30 @@
 <template>
+
+  <div class="featured-movie">
+    <img class="cover" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/22043/backdrop_ggwxvq_1.jpg" alt="" class="cover" />
+    <p class="corner-title">Staff pick</p>
+
+    <div class="bottom-bar">
+      <div class="title-container">
+        <span class="fa fa-play-circle"></span>
+        <b>Non-stop</b> Trailer #1
+      </div>
+
+      <div class="right">
+        <div class="stars">
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star-half-o"></span>
+          <span class="fa fa-star-o"></span>
+        </div>
+        <div class="share">
+          <i class="fa fa-share-square"></i> Share
+        </div>
+      </div> <!-- right -->
+    </div> <!-- bottom bar -->
+  </div> <!-- featured -->
+
   <div class="movie-list">
 
     <div v-if="$loadingRouteData">Loading...</div>
@@ -20,20 +46,20 @@ export default {
   name: 'MovieList',
   route: {
     data: () => ({
-      movies: getMovies(),
-    }),
+      movies: getMovies()
+    })
   },
-  data() {
+  data () {
     return {
-      movies: [],
+      movies: []
     };
   },
   components: {
-    MovieCard,
+    MovieCard
   },
   methods: {
-    getMovies,
-  },
+    getMovies
+  }
 };
 </script>
 

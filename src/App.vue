@@ -97,7 +97,7 @@
 export default {
   components: {
     // MovieList,
-  },
+  }
 };
 </script>
 

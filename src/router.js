@@ -2,26 +2,25 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import MovieList from './components/MovieList';
+import MovieDetails from './components/MovieDetails';
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
   hashbang: false,
   history: true,
-  transitionOnLoad: true,
+  transitionOnLoad: true
 });
 
 router.map({
   '/': {
     name: 'Home',
-    component: MovieList,
+    component: MovieList
   },
-  '/movie/:id': {
+  '/movie/:id/:name/': {
     name: 'movie',
-    component: {
-      template: '<p>the film ID is {{$route.params.id}}</p>',
-    },
-  },
+    component: MovieDetails
+  }
 });
 
 export default router;
