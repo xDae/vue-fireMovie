@@ -4,6 +4,9 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
+  'globals': {
+      'fetch': true
+  },
   extends: 'semistandard',
   // required to lint *.vue files
   plugins: [

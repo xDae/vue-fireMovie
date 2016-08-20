@@ -1,30 +1,8 @@
 <template>
-  <div class="featured-movie">
-    <img class="cover" :src="movieImages.hdmovieclearart[0].url" alt="" class="cover" />
-    <p class="corner-title">Staff pick</p>
 
-    <div class="bottom-bar">
-      <div class="title-container">
-        <span class="fa fa-play-circle"></span>
-        {{movieImages.name}}
-      </div>
+    <img class="cover" :src="background" alt="" class="cover" />
 
-      <div class="right">
-        <div class="stars">
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star-half-o"></span>
-          <span class="fa fa-star-o"></span>
-        </div>
-        <!-- <div class="share">
-          <i class="fa fa-share-square"></i> Share
-        </div> -->
-      </div> <!-- right -->
-    </div> <!-- bottom bar -->
-
-  </div> <!-- featured -->
-  {{movieImages.name}}
+        {{name}}
 </template>
 
 <script>
@@ -34,9 +12,15 @@ export default {
   name: 'MovieDetails',
   route: {
     data: function (transition) {
-      return fetch(`https://webservice.fanart.tv/v3/movies/${transition.to.params.id}?api_key=eb3b624d1526d41441b1cd8b608415d0`) // eslint-disable-line
+      return fetch(`https://webservice.fanart.tv/v3/movies/${transition.to.params.id}?api_key=eb3b624d1526d41441b1cd8b608415d0`)
         .then(function (response) {
-          return { movieImages: response.json() };
+          return response.json();
+        })
+        .then(function (json) {
+          return {
+            name: json.name,
+            background: json.hdmovieclearart[0].url
+          };
         })
         .catch(function (ex) {
           console.log('parsing failed', ex);
@@ -47,7 +31,8 @@ export default {
   },
   data () {
     return {
-      data: {}
+      name: '',
+      background: ''
     };
   }
 };

@@ -14,7 +14,7 @@ const router = new VueRouter({
 
 router.map({
   '/': {
-    name: 'Home',
+    name: 'home',
     component: MovieList
   },
   '/movie/:id/:name/': {
