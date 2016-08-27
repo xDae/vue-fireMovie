@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import MovieList from './components/MovieList';
+// import MovieList from './components/MovieList';
+import Home from './components/Home';
 import MovieDetails from './components/MovieDetails';
 
 Vue.use(VueRouter);
@@ -15,7 +16,7 @@ const router = new VueRouter({
 router.map({
   '/': {
     name: 'home',
-    component: MovieList
+    component: Home
   },
   '/movie/:id/:name/': {
     name: 'movie',

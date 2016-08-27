@@ -1,10 +1,12 @@
 <template>
-
-
-  <a v-link="{ name: 'movie', params: { id: this.id, name:this.kebabTitle }}" class="card">
-    {{title}}
-    </a>
-
+  <div v-link="{ name: 'movie', params: { id: this.id, name:this.kebabTitle }}" class="movie">
+    <img src="http://movium.io/data/posters/eqFckcHuFCT1FrzLOAvXBb4jHwq.jpg" alt="" class="poster" />
+    <div class="title">{{title}}</div>
+    <div class="info">
+      <span class="length">117 min</span>
+      <span class="year">2015</span>
+    </div>
+  </div>
 </template>
 
 <script>

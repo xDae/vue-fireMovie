@@ -1,4 +1,8 @@
 <template>
+  <app-header></app-header>
+
+  <h2>Most Popular Movies</h2>
+
   <section  class="movies">
     <div v-if="$loadingRouteData">Loading...</div>
 
@@ -10,8 +14,10 @@
 import getMovies from '../firebaseAPI/getMovies';
 import MovieCard from './MovieCard';
 
+import Header from './Header';
+
 export default {
-  name: 'MovieList',
+  name: 'Home',
   route: {
     data: () => ({
       movies: getMovies()
@@ -23,6 +29,7 @@ export default {
     };
   },
   components: {
+    AppHeader: Header,
     MovieCard
   },
   methods: {
