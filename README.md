@@ -1,7 +1,8 @@
-# vue-firemovie
+# Vue firemovie
 
 > A Vue.js project
 
+![alt text](screenshot.png "Logo Title Text 1")
 ## Build Setup
 
 ``` bash

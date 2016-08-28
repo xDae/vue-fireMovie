@@ -16,7 +16,7 @@ function getMovieImages (movieId) {
     .then(response => response.json())
     .then(json => {
       return {
-        background: json.hdmovieclearart[0].url,
+        // background: json.hdmovieclearart[0].url,
         poster: json.movieposter[0].url
       };
     })

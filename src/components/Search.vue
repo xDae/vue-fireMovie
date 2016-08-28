@@ -3,26 +3,26 @@
 
   <h2>Most Popular Movies</h2>
 
-  <router-view></router-view>
-
   <section  class="movies">
-    <div v-if="$loadingRouteData">Loading...</div>
-
-    <movie-card v-for="movie of movies" track-by="id" :id="movie.id" :title="movie.title" :poster="movie.poster_path"></movie-card>
+    <ul>
+      <li v-for="movie of movies">
+        {{movie.title}}
+        <img :src="postertUrl" alt="" />
+      </li>
+    </ul>
   </section>
 </template>
 
 <script>
-import getPopularMovies from './../helpers/getPopularMovies';
+import movieSearch from '../helpers/movieSearch';
 
-import MovieCard from './MovieCard';
 import Header from './Header';
 
 export default {
-  name: 'Home',
+  name: 'Search',
   route: {
-    data: () => ({
-      movies: getPopularMovies()
+    data: (transition) => ({
+      movies: movieSearch(transition.to.params.name)
     })
   },
   data () {
@@ -31,11 +31,11 @@ export default {
     };
   },
   components: {
-    AppHeader: Header,
-    MovieCard
+    AppHeader: Header
+    // MovieCard
   },
   methods: {
-    getPopularMovies
+    movieSearch
   }
 };
 </script>

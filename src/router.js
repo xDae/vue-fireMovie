@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-// import MovieList from './components/MovieList';
 import Home from './components/Home';
+import Search from './components/Search';
 import MovieDetails from './components/MovieDetails';
 
 Vue.use(VueRouter);
@@ -21,6 +21,10 @@ router.map({
   '/movie/:id/:name/': {
     name: 'movie',
     component: MovieDetails
+  },
+  '/search/:name/': {
+    name: 'search',
+    component: Search
   }
 });
 

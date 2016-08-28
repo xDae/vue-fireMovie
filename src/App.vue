@@ -37,7 +37,7 @@ body {
   display: flex;
   align-items: center;
   margin: 0;
-  background: radial-gradient(ellipse farthest-corner at center top, #ffee75, #ff8930);
+  background: radial-gradient(ellipse farthest-corner at center top, #41B883, #35495E);
   color: #8b9095;
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
@@ -45,10 +45,7 @@ body {
 
 .app {
   position: relative;
-  // @include center;
   width: 640px;
-  // height: 390px;
-  // overflow: hidden;
   background: #fff;
   border-radius: 15px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
@@ -59,49 +56,6 @@ body {
     box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
     padding: 20px 28px 0;
     margin: -6px 0 0 0;
-  }
-}
-
-.movies {
-  display: flex;
-  flex-wrap: wrap;
-  overflow: scroll;
-  height: 70vh;
-  padding: 8px 18px;
-
-  .movie {
-    padding: 10px;
-    cursor: pointer;
-    width: calc(100% * (1/4));
-
-    .poster {
-      width: 100%;
-      margin-bottom: 6px;
-      border-radius: 4px;
-
-      &.active {
-        opacity: 0;
-      }
-    }
-
-    .title {
-      //text-transform: uppercase;
-      color: #525661;
-      margin-bottom: 4px;
-      font-size: 16px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .info {
-      font-size: 11px;
-      opacity: .8;
-    }
-
-    .desc {
-      display: none;
-    }
   }
 }
 </style>

@@ -8,12 +8,10 @@
       <img :src="poster" class="poster" />
       <div class="title">{{title}}</div>
       <div class="info">
-        <span class="length">{{runtime}}</span>
+        <span class="length">{{runtime}} min</span>
         <span class="year">{{release_date}}</span>
       </div>
-      <div class="desc">
-        {{overview}}
-      </div>
+      <div class="desc">{{overview}}</div>
 
       <button class="play">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 232.153 232.153" style="enable-background:new 0 0 232.153 232.153;" xml:space="preserve" width="10px" height="10px">
@@ -59,7 +57,7 @@ export default {
             runtime: data[0].runtime,
             vote_average: data[0].vote_average,
             release_date: data[0].release_date,
-            background: data[1].background,
+            // background: data[1].background,
             poster: data[1].poster
           };
         });

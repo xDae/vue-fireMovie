@@ -2,6 +2,9 @@
   <header>
     <nav></nav>
     <h1>Vue<strong>movieFire</strong></h1>
+    <!-- <form class="header-form" method="post">
+      <input class="header-form-input" type="text" name="name" value="" placeholder="Search film">
+    </form> -->
     <div class="search">
       <svg>
         <use xlink:href="#ico-search"></use>
@@ -27,9 +30,7 @@
 <script>
 export default {
   data () {
-    return {
-      msg: 'Hello World!'
-    };
+    return {};
   }
 };
 </script>
@@ -49,7 +50,7 @@ header {
     color: #1c222b;
 
     strong {
-      background: #F16018;
+      background: #41B883;
       color: #fff;
       display: inline-block;
       border-radius: 30px;
@@ -88,6 +89,18 @@ header {
       width: 20px;
       height: 20px;
     }
+  }
+
+  .header-form {
+    flex-grow: 1;
+    padding: 0 40px;
+  }
+
+  .header-form-input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    font-size: 20px;
   }
 }
 </style>
