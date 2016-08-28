@@ -8,7 +8,8 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "test": "",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
+    "deploy": "gh-pages-deploy"
   },
   "dependencies": {
     "babel-runtime": "^6.0.0",
@@ -42,6 +43,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "function-bind": "^1.0.2",
+    "gh-pages-deploy": "^0.4.2",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.1",
     "json-loader": "^0.5.4",
@@ -57,5 +59,10 @@
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
     "webpack-merge": "^0.14.1"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "prep": ["build"],
+    "post": []
   }
 }
