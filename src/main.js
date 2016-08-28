@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import VueResource from 'vue-resource';
 
 import VueFire from 'vuefire';
 import { sync } from 'vuex-router-sync';
@@ -8,7 +7,6 @@ import router from './router';
 
 import App from './App';
 
-Vue.use(VueResource);
 Vue.use(VueFire);
 
 sync(store, router);
