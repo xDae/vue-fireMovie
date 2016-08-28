@@ -1,18 +1,18 @@
 <template>
-  <div class="detail ready">
+  <div class="detail" :class="{ 'ready': !$loadingRouteData}">
     <svg v-link="{name: 'home'}" class="close">
       <use xlink:href="#close"></use>
     </svg>
 
     <div class="movie">
       <img :src="poster" class="poster" />
-      <div class="title">{{name}}</div>
+      <div class="title">{{title}}</div>
       <div class="info">
-        <span class="length">117 min</span>
-        <span class="year">2015</span>
+        <span class="length">{{runtime}}</span>
+        <span class="year">{{release_date}}</span>
       </div>
       <div class="desc">
-        Jack is a young boy of 5 years old who has lived all his life in one room. He believes everything within it are the only real things in the world. But what will happen when his Ma suddenly tells him that there are other things outside of Room?
+        {{overview}}
       </div>
 
       <button class="play">
@@ -41,32 +41,47 @@
 </template>
 
 <script>
-// import 'whatwg-fetch';
+import {getMovieDetails, getMovieImages} from './../helpers/getMovieInfo';
 
 export default {
   name: 'MovieDetails',
   route: {
-    data: transition => {
-      return fetch(`https://webservice.fanart.tv/v3/movies/${transition.to.params.id}?api_key=eb3b624d1526d41441b1cd8b608415d0`)
-        .then(response => response.json())
-        .then(json => {
+    data ({to: {params: { id }}}) {
+      return Promise.all([
+        getMovieDetails(id),
+        getMovieImages(id)
+      ])
+        .then(data => {
           return {
-            name: json.name,
-            background: json.hdmovieclearart[0].url,
-            poster: json.movieposter[0].url
+            title: data[0].title,
+            tagline: data[0].tagline,
+            overview: data[0].overview,
+            runtime: data[0].runtime,
+            vote_average: data[0].vote_average,
+            release_date: data[0].release_date,
+            background: data[1].background,
+            poster: data[1].poster
           };
-        })
-        .catch(err => console.log('parsing failed', err));
+        });
     }
   },
   ready () {
   },
   data () {
     return {
-      name: '',
+      title: '',
+      tagline: '',
+      overview: '',
+      runtime: '',
+      vote_average: '',
+      release_date: '',
       background: '',
       poster: ''
     };
+  },
+  methods: {
+    getMovieDetails,
+    getMovieImages
   }
 };
 </script>
@@ -74,14 +89,8 @@ export default {
 <style lang="scss" scoped>
 .detail {
   min-height: 390px;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // height: 100%;
   z-index: 10;
   padding: 37px 30px 30px 255px;
-  // display: none;
 
   &::before {
     content: '';
@@ -93,7 +102,7 @@ export default {
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    // opacity: 0;
+    opacity: 0;
     transition: all .4s cubic-bezier(.67,.13,.1,.81);
   }
 
@@ -110,16 +119,12 @@ export default {
   }
 
   .poster {
+    position: absolute;
     top: -10%;
     left: -6%;
     width: 266px;
     height: 400px;
-
-    position: absolute;
     z-index: 2;
-    // top: -10%;
-    // left: -6%;
-    // height: 100%;
     border-radius: 5px;
     box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
     opacity: 0;
