@@ -1,13 +1,14 @@
 {
   "name": "vue-firemovie",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "A simple Vue.js/Firebase Movie App",
   "author": "Jose Miguel Bejarano <yo@josemiguel.org>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "test": "",
+    "deploy": "gh-pages-deploy",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
@@ -41,6 +42,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "function-bind": "^1.0.2",
+    "gh-pages-deploy": "^0.4.2",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.1",
     "json-loader": "^0.5.4",
@@ -58,5 +60,14 @@
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
     "webpack-merge": "^0.14.1"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "cname": "nope.org",
+    "prep": [
+      "build"
+    ],
+    "post": [],
+    "noprompt": true
   }
 }
