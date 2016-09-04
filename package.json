@@ -49,7 +49,7 @@
     "node-sass": "^3.8.0",
     "ora": "^0.3.0",
     "sass-loader": "^4.0.1",
-    "semistandard": "^8.0.0",
+    "semistandard": "^9.0.0",
     "shelljs": "^0.7.4",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
@@ -60,14 +60,5 @@
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
     "webpack-merge": "^0.14.1"
-  },
-  "gh-pages-deploy": {
-    "staticpath": "dist",
-    "cname": "nope.org",
-    "prep": [
-      "build"
-    ],
-    "post": [],
-    "noprompt": true
   }
 }
