@@ -46,8 +46,8 @@ export default {
   route: {
     data ({to: {params: { id }}}) {
       return Promise.all([
-        getMovieDetails(id),
-        getMovieImages(id)
+        getMovieDetails(id)
+        // getMovieImages(id)
       ])
         .then(data => {
           return {
@@ -58,12 +58,17 @@ export default {
             vote_average: data[0].vote_average,
             release_date: data[0].release_date,
             // background: data[1].background,
-            poster: data[1].poster
+            poster_path: data[0].poster_path
           };
         });
     }
   },
   ready () {
+  },
+  computed: {
+    poster () {
+      return `http://image.tmdb.org/t/p/w300/${this.poster_path}`;
+    }
   },
   data () {
     return {
@@ -74,7 +79,7 @@ export default {
       vote_average: '',
       release_date: '',
       background: '',
-      poster: ''
+      poster_path: ''
     };
   },
   methods: {
