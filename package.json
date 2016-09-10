@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A simple Vue.js/Firebase Movie App",
   "author": "Jose Miguel Bejarano <yo@josemiguel.org>",
+  "homepage": " http://josemiguel.org/vue-firemovie/",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -60,5 +61,11 @@
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
     "webpack-merge": "^0.14.1"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "prep": ["build"],
+    "post": [],
+    "noprompt": false
   }
 }
